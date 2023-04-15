@@ -1,0 +1,43 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <title>Vue Mastery</title>\r\n    <!-- Import Styles -->\r\n    <link rel=\"stylesheet\" href=\"./assets/styles.css\" />\r\n    <!-- Import Vue.js -->\r\n    <script src=\"https://unpkg.com/vue@3.0.11/dist/vue.global.js\"></script>\r\n  </head>\r\n  <body>\r\n    <div id=\"app\">\r\n      <div class=\"nav-bar\"></div>\r\n      \r\n      <div class=\"product-display\">\r\n        <div class=\"product-container\">\r\n          <div class=\"product-image\">\r\n            <img :src=\"image\">\r\n            <!-- image goes here -->\r\n          </div>\r\n          <div class=\"product-info\">\r\n\r\n            <h1>{{ product }}</h1>\r\n\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Import App -->\r\n    <script src=\"./main.js\"></script>\r\n\r\n    <!-- Mount App -->\r\n    <script>\r\n      const mountedApp = app.mount('#app')\r\n    </script>\r\n  </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision af939543e47c5658061efdc14bc817da1ef157cc)
++++ b/index.html	(date 1681539024980)
+@@ -19,10 +19,10 @@
+             <!-- image goes here -->
+           </div>
+           <div class="product-info">
+-
++<a :href="url">
+             <h1>{{ product }}</h1>
+ 
+-
++</a>
+           </div>
+         </div>
+       </div>
+Index: main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const app = Vue.createApp({\r\n     data() {\r\n        return {\r\n            product: 'Socks',\r\n            image:'./assets/images/socks_green.jpg '\r\n        }\r\n    }\r\n})\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.js b/main.js
+--- a/main.js	(revision af939543e47c5658061efdc14bc817da1ef157cc)
++++ b/main.js	(date 1681539024994)
+@@ -2,7 +2,8 @@
+      data() {
+         return {
+             product: 'Socks',
+-            image:'./assets/images/socks_green.jpg '
++            image:'./assets/images/socks_green.jpg ',
++            url:'https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx'
+         }
+     }
+ })

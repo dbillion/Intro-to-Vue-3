@@ -1,0 +1,43 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <title>Vue Mastery</title>\r\n    <!-- Import Styles -->\r\n    <link rel=\"stylesheet\" href=\"./assets/styles.css\" />\r\n    <!-- Import Vue.js -->\r\n    <script src=\"https://unpkg.com/vue@3.0.11/dist/vue.global.js\"></script>\r\n  </head>\r\n  <body>\r\n    <div id=\"app\">\r\n      <div class=\"nav-bar\"></div>\r\n      \r\n      <div class=\"product-display\">\r\n        <div class=\"product-container\">\r\n          <div class=\"product-image\">\r\n            <img v-bind:src=\"image\">\r\n          </div>\r\n          <div class=\"product-info\">\r\n            <h1>{{ product }}</h1>\r\n            <p v-if=\"inStock\">In Stock</p>\r\n            <p v-else>Out of Stock</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Import App -->\r\n    <script src=\"./main.js\"></script>\r\n\r\n    <!-- Mount App -->\r\n    <script>\r\n      const mountedApp = app.mount('#app')\r\n    </script>\r\n  </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision d0691a96dfafffd788ffa92a3fdd2d2893f2cd16)
++++ b/index.html	(date 1681554098540)
+@@ -21,6 +21,11 @@
+             <h1>{{ product }}</h1>
+             <p v-if="inStock">In Stock</p>
+             <p v-else>Out of Stock</p>
++            <ul>
++              <li v-for="detail in details">{{detail}}</li>
++
++            </ul>
++            <div v-for="variant in variants">{{variant.color}}</div>
+           </div>
+         </div>
+       </div>
+Index: main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const app = Vue.createApp({\r\n    data() {\r\n        return {\r\n            product: 'Socks',\r\n            image: './assets/images/socks_blue.jpg',\r\n            inStock: true,\r\n            details: ['50% cotton', '30% wool', '20% polyester']\r\n        }\r\n    }\r\n})\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.js b/main.js
+--- a/main.js	(revision d0691a96dfafffd788ffa92a3fdd2d2893f2cd16)
++++ b/main.js	(date 1681554210992)
+@@ -5,6 +5,10 @@
+             image: './assets/images/socks_blue.jpg',
+             inStock: true,
+             details: ['50% cotton', '30% wool', '20% polyester']
++            variants:[
++                {id: 2234, color:'green'},
++                {id: 2235, color:'blue'},
++            ]
+         }
+     }
+ })
